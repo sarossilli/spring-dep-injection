@@ -1,17 +1,15 @@
 package li.sarossil.springdepinjection.controllers;
 
-import li.sarossil.springdepinjection.services.GreetingServiceImpl;
+import li.sarossil.springdepinjection.services.ConstructorGreetingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class SetterControllerTest {
     SetterController controller;
     @BeforeEach
     void setUp() {
         controller = new SetterController();
-        controller.setGreetingService(new GreetingServiceImpl());
+        controller.setGreetingService(new ConstructorGreetingService());
     }
 
     @Test
