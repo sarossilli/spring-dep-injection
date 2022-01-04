@@ -10,12 +10,16 @@ public class SpringDepInjectionApplication {
 
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(SpringDepInjectionApplication.class, args);
-        MyController myController = (MyController) ctx.getBean("myController");
+
+        PetController petController = (PetController) ctx.getBean("petController");
+        System.out.println("----------- petController");
+        System.out.println(petController.bestPet());
 
         I18nController i18nController = (I18nController) ctx.getBean("i18nController");
         System.out.println("----------- My Controller I18N");
         System.out.println(i18nController.sayHello());
 
+        MyController myController = (MyController) ctx.getBean("myController");
         System.out.println("----------- My Controller Primary");
         System.out.println(myController.sayHello());
 
