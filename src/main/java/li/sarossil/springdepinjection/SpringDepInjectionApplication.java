@@ -1,9 +1,6 @@
 package li.sarossil.springdepinjection;
 
-import li.sarossil.springdepinjection.controllers.ConstructorController;
-import li.sarossil.springdepinjection.controllers.MyController;
-import li.sarossil.springdepinjection.controllers.PropertyInjectedController;
-import li.sarossil.springdepinjection.controllers.SetterController;
+import li.sarossil.springdepinjection.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,6 +11,10 @@ public class SpringDepInjectionApplication {
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(SpringDepInjectionApplication.class, args);
         MyController myController = (MyController) ctx.getBean("myController");
+
+        I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+        System.out.println("----------- My Controller I18N");
+        System.out.println(i18nController.sayHello());
 
         System.out.println("----------- My Controller Primary");
         System.out.println(myController.sayHello());
