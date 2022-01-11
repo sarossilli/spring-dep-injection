@@ -1,8 +1,8 @@
-package li.sarossil.springdepinjection.services;
+package li.sarossil.pets;
 
 import org.springframework.stereotype.Service;
 
 @Service
 public interface PetService {
-    public String getPetType();
+    String getPetType();
 }

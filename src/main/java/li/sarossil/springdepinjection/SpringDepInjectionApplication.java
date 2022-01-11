@@ -4,7 +4,10 @@ import li.sarossil.springdepinjection.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
+
+@ComponentScan(basePackages = {"li.sarossil.springdepinjection","li.sarossil.pets"})
 @SpringBootApplication
 public class SpringDepInjectionApplication {
 
