@@ -1,6 +1,7 @@
 package li.sarossil.springdepinjection;
 
 import li.sarossil.springdepinjection.controllers.*;
+import li.sarossil.springdepinjection.datasource.FakeDataSource;
 import li.sarossil.springdepinjection.services.PrototypeBean;
 import li.sarossil.springdepinjection.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
@@ -53,6 +54,13 @@ public class SpringDepInjectionApplication {
         PrototypeBean protoBean2 = ctx.getBean(PrototypeBean.class);
         System.out.println(protoBean1.getMyScope());
         System.out.println(protoBean2.getMyScope()); // Prototypes are constructed whenever its needed
+
+        FakeDataSource ds = ctx.getBean(FakeDataSource.class);
+
+        System.out.println("Fake Data username");
+        System.out.println(ds.getUsername());
+
+
 
     }
 

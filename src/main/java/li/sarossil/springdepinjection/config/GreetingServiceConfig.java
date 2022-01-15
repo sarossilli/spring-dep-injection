@@ -2,17 +2,27 @@ package li.sarossil.springdepinjection.config;
 
 import li.sarossil.pets.PetService;
 import li.sarossil.pets.PetServiceFactory;
+import li.sarossil.springdepinjection.datasource.FakeDataSource;
 import li.sarossil.springdepinjection.repositories.EnglishGreetingRepository;
 import li.sarossil.springdepinjection.repositories.EnglishGreetingRepositoryImpl;
 import li.sarossil.springdepinjection.services.*;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.*;
 import org.springframework.stereotype.Service;
 
+@PropertySource("classpath:datasource.properties")
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    FakeDataSource fakeDataSource(@Value("${li.username}") String username,@Value("${li.password}")String password,@Value("${li.jdbcUrl}")String jdbUrl){
+        FakeDataSource fakeDataSource = new FakeDataSource();
+        fakeDataSource.setJdbcurl(jdbUrl);
+        fakeDataSource.setPassword(password);
+        fakeDataSource.setUsername(username);
+        return fakeDataSource;
+    }
+
 
     @Bean
     PetServiceFactory petServiceFactory(){
