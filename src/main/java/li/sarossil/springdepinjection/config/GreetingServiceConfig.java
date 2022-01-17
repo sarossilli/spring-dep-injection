@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 import org.springframework.stereotype.Service;
 
-@PropertySource("classpath:datasource.properties")
+
 @Configuration
 public class GreetingServiceConfig {
 
